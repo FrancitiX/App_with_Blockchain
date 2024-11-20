@@ -1,0 +1,17 @@
+:root {
+    --bgcolor: rgb(24, 25, 25);
+    --bgcolor2: rgb(35, 38, 40);
+    --text: rgb(245, 245, 245);
+    --text2: rgb(20, 20, 20);
+    --detail: rgba(240, 240, 240);
+    --detail2: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--bgcolor);
+    color: var(--text);
+}
