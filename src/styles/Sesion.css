@@ -1,0 +1,28 @@
+@import 'General';
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.form_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_data {
+  min-height: 200px;
+  padding: 20px;
+  border: 1px solid var(--detail);
+}
+
+form .form_group {
+  display: flex;
+  flex-direction: column;
+  
+  margin-bottom: 20px;
+}

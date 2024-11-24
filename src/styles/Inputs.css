@@ -1,0 +1,14 @@
+@import 'General';
+
+.input {
+    background: var(--bgcolor);
+    color: var(--text);
+    
+}
+    
+.inputContain {
+    display: flex;
+    flex-direction: column;
+    
+    margin-bottom: 20px;
+  }
