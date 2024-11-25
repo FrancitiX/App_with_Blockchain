@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./../styles/Sesion.css";
-import "./../styles/General.css";
 import { InputDefault, InputPassword } from "./../components/Inputs";
 
 function Login() {
