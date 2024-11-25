@@ -1,17 +1,38 @@
 :root {
-    --bgcolor: rgb(24, 25, 25);
-    --bgcolor2: rgb(35, 38, 40);
-    --text: rgb(245, 245, 245);
-    --text2: rgb(20, 20, 20);
-    --detail: rgba(240, 240, 240);
-    --detail2: rgba(0, 0, 0, 0.3);
+    --bgColor: rgb(245, 248, 250);
+    --bgColor2: rgb(230, 233, 235);
+    --bgColor3: rgb();
+    
+    --text: rgb(20, 20, 20);
+    --text2: rgb(240, 240, 240);
+    --text3: rgba(50, 50, 50, 0.5);
+    --specialText: rgb(0, 0, 0);
+
+    --detail: rgba(40, 40, 40);
+    --detail2: rgba(100, 100, 100);
+    --detail3: rgb();
+    
+    --shadow: rgba(0, 0, 0, 0.2);
 }
+
+/* --bgcolor: rgb(24, 25, 25);
+--bgcolor2: rgb(35, 38, 40);
+--text: rgb(245, 245, 245);
+--text2: rgb(20, 20, 20);
+--detail: rgba(240, 240, 240);
+--detail2: rgba(0, 0, 0, 0.3); */
 
 * {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body {
-    background: var(--bgcolor);
+    background: var(--bgColor);
     color: var(--text);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

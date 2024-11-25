@@ -20,8 +20,16 @@ function Login() {
     <>
       <div className="form_container">
         <div className="form_data">
-          <h1>SmartOrder</h1>
+          <img className="logo" src="src\assets\media\Logo1.jpeg" alt="logo" />
+          <h1 className="title">Inicar sesion</h1>
+
           <form>
+            <div className="center">
+              <p className="helpText">
+                Puedes inicar sesion con tu usuario o correo electronico
+              </p>
+            </div>
+
             <div className="form_group">
               <InputDefault
                 type="text"
@@ -35,16 +43,17 @@ function Login() {
             <InputPassword
               name="password"
               id="passwordInput"
-              placeHolder="Contrseña de usuario"
+              placeHolder="Contrseña"
             />
 
             <div>
-              <button type="button" onClick={Home}>
+              <button className="next" type="button" onClick={Home}>
                 Iniciar sesión
               </button>
             </div>
 
-            <div>
+            <div className="other_sesion">
+              <p>No tienes cuenta?</p>
               <button type="button" onClick={Register}>
                 Registrarse
               </button>
