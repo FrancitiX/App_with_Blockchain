@@ -36,3 +36,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.Horizontal {
+    display: flex;
+    align-items: center;
+}

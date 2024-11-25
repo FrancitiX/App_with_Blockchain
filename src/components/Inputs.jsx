@@ -40,6 +40,11 @@ const InputPassword = ({ name, id, placeHolder }) => {
         onChange={(e) => setValue(e.target.value)}
       />
       <label htmlFor={id}>{placeHolder}</label>
+
+      <div className="Horizontal">
+        <input type="checkbox"></input>
+        <p>Mostrar contraseña</p>
+      </div>
     </div>
   );
 };
