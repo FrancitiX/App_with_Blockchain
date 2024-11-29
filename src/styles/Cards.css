@@ -62,3 +62,7 @@
 .card-info h4 {
   width: 100%;
 }
+
+.card-extraInfo {
+    padding: 20px;
+}

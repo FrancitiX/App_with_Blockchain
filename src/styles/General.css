@@ -1,7 +1,7 @@
 :root {
   --bgColor: rgb(245, 248, 250);
   --bgColor2: rgb(235, 238, 240);
-  --bgColor3: rgb();
+  --bgColor3: rgb(254, 197, 38);
 
   --text: rgb(20, 20, 20);
   --text2: rgb(240, 240, 240);
@@ -19,9 +19,9 @@
 }
 
 [data-theme="dark"] {
-    --bgColor: rgb(20, 23, 25);
-    --bgColor2: rgb(28, 31, 33);
-    --bgColor3: rgb();
+    --bgColor: rgb(20, 20, 20);
+    --bgColor2: rgb(25, 25, 25);
+    --bgColor3: rgb(230, 175, 18);
   
     --text: rgb(245, 245, 245);
     --text2: rgb(20, 20, 20);

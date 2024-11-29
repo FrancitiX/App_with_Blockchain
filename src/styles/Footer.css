@@ -4,4 +4,5 @@ footer {
     min-height: 20vh;
     background: rgb(20, 23, 25);
     color: rgb(240, 243, 245);
+    border-top: 1px solid var(--detail);
 }
