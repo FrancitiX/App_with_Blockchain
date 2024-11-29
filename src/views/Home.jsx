@@ -42,28 +42,28 @@ function Home() {
             />
 
             <CardTypeOne
-              imagen="src\assets\media\registro_propiedad.jpg"
+              imagen="src\assets\media\solicitud_cita.jpg"
               titulo="Solicitar cita"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
-              imagen="src\assets\media\registro_propiedad.jpg"
+              imagen="src\assets\media\tramites.jpg"
               titulo="Consultar tramites"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
-              imagen=""
+              imagen="src\assets\media\titulos.jpg"
               titulo="Revisar titulos disponibles"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
-              imagen="src\assets\media\registro_propiedad.jpg"
+              imagen="src\assets\media\documentos.jpg"
               titulo="Consulta de Documentos"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
@@ -74,7 +74,7 @@ function Home() {
         <section className="container">
           <div className="blockchain_speak">
             <h3>¿Qué es Blockchain?</h3>
-            <div>
+            <div className="blockchain_text">
               <p>
                 Blockchain es una tecnología de registro descentralizado que
                 permite almacenar y transferir datos de manera segura,

@@ -36,12 +36,12 @@ main {
 }
 
 .holder .subHolder p {
-    text-align: center;
+  text-align: center;
   color: rgb(240, 243, 245);
 }
 
 .holder .bc {
-    text-align: center;
+  text-align: center;
 }
 
 .container {
@@ -66,32 +66,45 @@ main {
   gap: 50px;
 }
 
+.blockchain_text {
+  width: 70%;
+  padding: 0px 50px;
+}
+
+
 .blockchain-image {
-    width: 100%;
-    margin: 50px 0;
+  width: 100%;
+  margin: 50px 0;
 }
 
 .blockchain-image img {
-    width: 80%;
+  width: 80%;
 }
 
 .validations {
-    margin-top: 10vh;
-    width: 100%;
-    min-height: 30vh;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
-    gap: 20px;
-    border-radius: 20px 20px 0px 0px;
-    background: var(--bgColor3);
+  margin-top: 10vh;
+  width: 100%;
+  min-height: 30vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
+  gap: 20px;
+  border-radius: 20px 20px 0px 0px;
+  /* background: var(--bgColor3); */
 }
 
 .validations .validation {
-    padding: 30px;
-    margin: 20px;
-    border-radius: 10px;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 10px;
 }
 
 #GBMexico {
-    background: rgb(97, 18, 50);
+  background: rgb(97, 18, 50);
 }
+
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 0 20px;
+  }
+}  
