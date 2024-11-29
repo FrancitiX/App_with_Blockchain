@@ -1,17 +1,13 @@
-@import 'General';
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
 .form_container {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  height: 100vh;
 }
 
 .form_data {
@@ -34,6 +30,7 @@
 }
 
 .title {
+  color: var(--detail3);
   font-size: 30px;
   margin: 0px 0px;
 }
@@ -46,8 +43,22 @@
   margin-bottom: 20px;
 }
 
-button {
+.next  {
   border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  color: rgb(255, 255, 255);
+  background: var(--detail3);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.noButton {
   border: 1px solid transparent;
   padding: 5px 10px;
   font-size: 15px;
@@ -58,13 +69,13 @@ button {
   transition: border-color 0.25s;
 } 
 
-button:focus,
-button:focus-visible {
+.buttonSesion:focus,
+.buttonSesion:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
 .next:hover {
-  background: var(--detail);
+  background: var(--specialText);
 }
 
 form .other_sesion {
@@ -73,7 +84,7 @@ form .other_sesion {
   justify-content: space-around;
 }
 
-.other_sesion button {
+.other_sesion .noButton {
   background: transparent;
   color: var(--detail);
   font-weight: 400;

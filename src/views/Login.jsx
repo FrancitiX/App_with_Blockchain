@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./../styles/Sesion.css";
-import { InputDefault, InputPassword } from "./../components/Inputs";
+import { InputUser, InputPassword } from "./../components/Inputs";
 
 function Login() {
-  // const [count, setCount] = useState(0)
+
   const navigate = useNavigate();
 
   const Register = () => {
@@ -19,7 +19,7 @@ function Login() {
     <>
       <div className="form_container">
         <div className="form_data">
-          <img className="logo" src="src\assets\media\Logo1.jpeg" alt="logo" />
+          <img className="logo" src="src\assets\media\Logo3.jpeg" alt="logo" />
           <h1 className="title">Inicar sesion</h1>
 
           <form>
@@ -30,7 +30,7 @@ function Login() {
             </div>
 
             <div className="form_group">
-              <InputDefault
+              <InputUser
                 type="text"
                 name="user"
                 id="userInput"
@@ -46,14 +46,14 @@ function Login() {
             />
 
             <div>
-              <button className="next" type="button" onClick={Home}>
+              <button className="buttonSesion next" type="button" onClick={Home}>
                 Iniciar sesión
               </button>
             </div>
 
             <div className="other_sesion">
               <p>No tienes cuenta?</p>
-              <button type="button" onClick={Register}>
+              <button className="noButton" type="button" onClick={Register}>
                 Registrarse
               </button>
             </div>
