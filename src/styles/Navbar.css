@@ -63,9 +63,30 @@ header {
     text-align: center;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: 0.3s;
 }
 
 .nav_options .nav_option:hover {
     color: var(--specialText);
+    transform: scale(1.03);
+}
+
+.nav_option.user {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.nav_option.user:hover {
+    filter: drop-shadow(0 0 5px var(--specialText));
+}
+
+.nav_option .user-image {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }

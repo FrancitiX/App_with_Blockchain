@@ -51,7 +51,7 @@ function Navbar() {
               option
             </Link>
             <Link to="/profile" className="nav_option user">
-              <button>user</button>
+              <img className="user-image" src="/media/user.png" alt="user image" />
             </Link>
           </div>
         </nav>

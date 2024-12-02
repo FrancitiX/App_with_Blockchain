@@ -6,3 +6,16 @@ footer {
     color: rgb(240, 243, 245);
     border-top: 1px solid var(--detail);
 }
+
+.footer-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
+}
+
+.copyright { 
+    width: 100%;
+    margin-top: 10vh;
+    padding-bottom: 20px;
+    text-align: center;
+}
