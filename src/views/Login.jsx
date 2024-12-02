@@ -1,11 +1,10 @@
-import React from "react";
+// import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./../styles/Sesion.css";
-import "./../styles/General.css";
-import { InputDefault, InputPassword } from "./../components/Inputs";
+import { InputUser, InputPassword } from "./../components/Inputs";
 
 function Login() {
-  // const [count, setCount] = useState(0)
+
   const navigate = useNavigate();
 
   const Register = () => {
@@ -20,10 +19,18 @@ function Login() {
     <>
       <div className="form_container">
         <div className="form_data">
-          <h1>SmartOrder</h1>
+          <img className="logo" src="src\assets\media\Logo3.jpeg" alt="logo" />
+          <h1 className="title">Inicar sesion</h1>
+
           <form>
+            <div className="center">
+              <p className="helpText">
+                Puedes inicar sesion con tu usuario o correo electronico
+              </p>
+            </div>
+
             <div className="form_group">
-              <InputDefault
+              <InputUser
                 type="text"
                 name="user"
                 id="userInput"
@@ -35,17 +42,18 @@ function Login() {
             <InputPassword
               name="password"
               id="passwordInput"
-              placeHolder="Contrseña de usuario"
+              placeHolder="Contrseña"
             />
 
             <div>
-              <button type="button" onClick={Home}>
+              <button className="buttonSesion next" type="button" onClick={Home}>
                 Iniciar sesión
               </button>
             </div>
 
-            <div>
-              <button type="button" onClick={Register}>
+            <div className="other_sesion">
+              <p>No tienes cuenta?</p>
+              <button className="noButton" type="button" onClick={Register}>
                 Registrarse
               </button>
             </div>
