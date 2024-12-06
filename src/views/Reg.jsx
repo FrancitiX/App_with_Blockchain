@@ -1,8 +1,7 @@
-import React from "react";
+// import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./../styles/Sesion.css";
+import styles from "./../styles/Sesion.module.css";
 import { InputDefault, InputPassword } from "./../components/Inputs";
-import Login from "./Login";
 
 function Register() {
   const navigate = useNavigate();
@@ -17,19 +16,19 @@ function Register() {
 
   return (
     <>
-      <div className="form_container">
-        <div className="form_data">
-          <img className="logo" src="src\assets\media\Logo3.jpeg" alt="logo" />
-          <h1 className="title">Registro</h1>
+      <div className={styles.form_container}>
+        <div className={styles.form_data}>
+          <img className={styles.logo} src="src/assets/media/Logo3.jpeg" alt="logo" />
+          <h1 className={styles.title}>Registro</h1>
 
           <form>
-            <div className="center">
-              <p className="helpText">
+            <div className={styles.center}>
+              <p className={styles.helpText}>
                 Ingresa un usuario y contraseña para crear tu usuario
               </p>
             </div>
 
-            <div className="form_group">
+            <div className={styles.form_group}>
               <InputDefault
                 type="text"
                 name="user"
@@ -42,12 +41,12 @@ function Register() {
             <InputPassword
               name="password"
               id="passwordInput"
-              placeHolder="Contrseña"
+              placeHolder="Contraseña"
             />
 
             <div>
               <button
-                className="buttonSesion next"
+                className={`${styles.buttonSesion} ${styles.next}`}
                 type="button"
                 onClick={Home}
               >
@@ -55,10 +54,10 @@ function Register() {
               </button>
             </div>
 
-            <div className="other_sesion">
+            <div className={styles.other_sesion}>
               <p>Ya tienes cuenta?</p>
-              <button className="noButton" type="button" onClick={Login}>
-                Iniciar Sesion
+              <button className={styles.noButton} type="button" onClick={Login}>
+                Iniciar Sesión
               </button>
             </div>
           </form>

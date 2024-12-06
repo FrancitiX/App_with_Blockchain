@@ -1,7 +1,8 @@
 // import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./../styles/Sesion.css";
+import loginStyle from "./../styles/Sesion.module.css";
 import { InputUser, InputPassword } from "./../components/Inputs";
+import classNames from 'classnames';
 
 function Login() {
 
@@ -17,19 +18,19 @@ function Login() {
 
   return (
     <>
-      <div className="form_container">
-        <div className="form_data">
-          <img className="logo" src="src\assets\media\Logo3.jpeg" alt="logo" />
-          <h1 className="title">Inicar sesion</h1>
+      <div className={loginStyle.form_container}>
+        <div className={loginStyle.form_data}>
+          <img className={loginStyle.logo} src="src\assets\media\Logo3.jpeg" alt="logo" />
+          <h1 className={loginStyle.title}>Inicar sesion</h1>
 
           <form>
             <div className="center">
-              <p className="helpText">
+              <p className={loginStyle.helpText}>
                 Puedes inicar sesion con tu usuario o correo electronico
               </p>
             </div>
 
-            <div className="form_group">
+            <div className={loginStyle.form_group}>
               <InputUser
                 type="text"
                 name="user"
@@ -46,14 +47,14 @@ function Login() {
             />
 
             <div>
-              <button className="buttonSesion next" type="button" onClick={Home}>
+              <button className={classNames(loginStyle.buttonSesion, loginStyle.next)} type="button" onClick={Home}>
                 Iniciar sesión
               </button>
             </div>
 
-            <div className="other_sesion">
+            <div className={loginStyle.other_sesion}>
               <p>No tienes cuenta?</p>
-              <button className="noButton" type="button" onClick={Register}>
+              <button className={loginStyle.noButton} type="button" onClick={Register}>
                 Registrarse
               </button>
             </div>
