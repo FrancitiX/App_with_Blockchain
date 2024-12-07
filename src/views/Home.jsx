@@ -78,7 +78,7 @@ function Home() {
             <div className={styles.topicSeparator}>
               <Blockchain />
             </div>
-
+ 
             <div className={styles.topicsContainer}>
               <h1>Conoce más sobre...</h1>
 

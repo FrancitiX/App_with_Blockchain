@@ -17,6 +17,7 @@
   --shadow: rgba(0, 0, 0, 0.2);
 
   --textSize1: 15px;
+  --textSize2: 13px;
 }
 
 [data-theme="dark"] {
