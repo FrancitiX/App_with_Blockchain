@@ -10,7 +10,25 @@
   margin-bottom: 20px;
 }
 
-.inputContain input {
+.inputContain_medio {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  margin-bottom: 20px;
+}
+
+.inputContain .input {
+  font-size: 15px;
+  padding: 12px 10px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--detail2);
+  border-radius: 5px;
+}
+
+.inputContain_medio .input {
   font-size: 15px;
   padding: 12px 10px;
   letter-spacing: 0.5px;
@@ -36,6 +54,11 @@
   border: 1px solid var(--detail);
 }
 
+.inputContain_medio input:focus {
+  outline: none;
+  border: 1px solid var(--detail);
+}
+
 .inputContain label {
   position: absolute;
   top: 0;
@@ -53,6 +76,31 @@
 .inputContain input:hover ~ label,
 .inputContain input:valid ~ label,
 .inputContain input:not([value=""]) ~ label {
+  top: -8px;
+  left: 10px;
+  padding: 0px 8px;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bgColor);
+}
+
+.inputContain_medio label {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding: 12px 0;
+  font-size: 15px;
+  color: var(--text3);
+  pointer-events: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.inputContain_medio input:focus ~ label,
+.inputContain_medio input:hover ~ label,
+.inputContain_medio input:valid ~ label,
+.inputContain_medio input:not([value=""]) ~ label {
   top: -8px;
   left: 10px;
   padding: 0px 8px;
@@ -86,4 +134,14 @@
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+}
+
+.Selector {
+  font-size: 15px;
+  padding: 12px 10px;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--detail2);
+  border-radius: 5px;
 }

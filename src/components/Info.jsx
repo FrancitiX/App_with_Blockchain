@@ -1,17 +1,18 @@
 // import React from "react";
+import info from './../styles/Home.module.css'
 
 const Blockchain = () => {
   return (
-    <div className="topic_speak">
+    <div className={info.topicSpeak}>
       <h3>¿Qué es Blockchain?</h3>
-      <div className="topic_text">
+      <div className={info.topicText}>
         <p>
           Blockchain es una tecnología de registro descentralizado que permite
           almacenar y transferir datos de manera segura, transparente e
           inmutable. Consiste en una cadena de bloques interconectados, donde
           cada bloque contiene un conjunto de transacciones o datos.
         </p>
-        <div className="topic-image center">
+        <div className={`${info.topicImage} center`}>
           <img src="src\assets\media\blockchain.jpg" alt="blockchain" />
         </div>
         <p>Características clave:</p>

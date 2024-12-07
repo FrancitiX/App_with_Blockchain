@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./../styles/Inputs.css";
+import style from "./../styles/Inputs.module.css";
+import classNames from "classnames";
 
 // InputDefault.props {
 //     type: String,
@@ -9,9 +10,28 @@ const InputDefault = ({ type, name, id, placeHolder, req }) => {
   const [value, setValue] = useState("");
 
   return (
-    <div className="inputContain">
+    <div className={style.inputContain}>
       <input
-        className="input"
+        className={style.input}
+        type={type}
+        name={name}
+        id={id}
+        required={req ? true : undefined}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <label htmlFor={id}>{placeHolder}</label>
+    </div>
+  );
+};
+
+const InputMedio = ({ type, name, id, placeHolder, req }) => {
+  const [value, setValue] = useState("");
+
+  return (
+    <div className={style.inputContain_medio}>
+      <input
+        className={style.input}
         type={type}
         name={name}
         id={id}
@@ -28,9 +48,9 @@ const InputUser = ({ type, name, id, placeHolder, req }) => {
   const [value, setValue] = useState("");
 
   return (
-    <div className="inputContain">
+    <div className={style.inputContain}>
       <input
-        className="inputSession"
+        className={style.inputSession}
         type={type}
         name={name}
         id={id}
@@ -38,7 +58,7 @@ const InputUser = ({ type, name, id, placeHolder, req }) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <div className="passwordVisible">
+      <div className={style.passwordVisible}>
         <span className="material-symbols-outlined">person</span>
       </div>
       <label htmlFor={id}>{placeHolder}</label>
@@ -55,9 +75,9 @@ const InputPassword = ({ name, id, placeHolder }) => {
   };
 
   return (
-    <div className="inputContain">
+    <div className={style.inputContain}>
       <input
-        className="inputSession passwordInput"
+        className={classNames(style.inputSession, style.passwordInput)}
         type={visible ? "text" : "password"}
         name={name}
         id={id}
@@ -65,7 +85,7 @@ const InputPassword = ({ name, id, placeHolder }) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <div className="passwordVisible" onClick={passwordVisible}>
+      <div className={style.passwordVisible} onClick={passwordVisible}>
         {visible ? (
           <span className="material-symbols-outlined">visibility</span> // Mostrar ícono de visibilidad
         ) : (
@@ -77,4 +97,15 @@ const InputPassword = ({ name, id, placeHolder }) => {
   );
 };
 
-export { InputDefault, InputUser, InputPassword };
+const Selector = ({ name, id, title, options }) => {
+  return (
+    <div className={style.inputContain}>
+      <label htmlFor={id}>{title}</label>
+      <select className={style.Selector} name={name} id={id}>
+        {options}
+      </select>
+    </div>
+  );
+};
+
+export { InputDefault, InputMedio, InputUser, InputPassword, Selector };

@@ -1,5 +1,5 @@
 /* Modificable */
-.cards-container {
+.cardsContainer {
   width: 100%;
   min-height: 30vh;
   padding: 20px;
@@ -29,7 +29,7 @@
   grid-row: span 2;
 }
 
-.card .card-image {
+.card .cardImage {
   position: relative;
   width: 100%;
   height: 100%;
@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 
-.cardVertical .card-image {
+.cardVertical .cardImage {
   position: relative;
   width: 100%;
   height: 60%;
@@ -46,16 +46,17 @@
   overflow: hidden;
 }
 
-.card-image img {
+.cardImage img {
   height: 100%;
   width: 100%;
   filter: brightness(50%);
 }
 
-.card-info {
+.cardInfo {
   position: absolute;
   top: 0;
   height: 200px;
+  width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -65,17 +66,17 @@
   color: rgb(250, 250, 250);
 }
 
-.cardVertical .card-info {
+.cardVertical .cardInfo {
   height: 300px;
 }
 
-.card-info h4 {
+.cardInfo h4 {
   width: 100%;
   text-align: center;
   color: rgb(255, 255, 255);
   filter: drop-shadow(0 0 10px rgb(0, 0, 0));
 }
 
-.card-extraInfo {
+.cardExtraInfo {
   padding: 20px;
 }

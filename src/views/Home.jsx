@@ -2,7 +2,8 @@ import Navbar from "./../components/Nav";
 import Footer from "../components/Footer";
 import { CardTypeOne, CardTypeTwo } from "../components/Cards";
 import { Blockchain } from "../components/Info";
-import "./../styles/Home.css";
+import styles from "./../styles/Home.module.css";
+import classNames from "classnames";
 
 function Home() {
   return (
@@ -10,11 +11,11 @@ function Home() {
       <Navbar />
 
       <main>
-        <div className="background">
-          <div className="holder center">
+        <div className={styles.background}>
+          <div className={`${styles.holder} center`}>
             <h1>Registro para tus propiedades digitales</h1>
-            <div className="subHolder">
-              <span className="bc">
+            <div className={styles.subHolder}>
+              <span className={styles.bc}>
                 Con el uso de blockchain podemos mejorar el trato a las
                 propiedades digitales y tecnologicas
               </span>
@@ -23,9 +24,9 @@ function Home() {
           </div>
         </div>
 
-        <section className="container">
-          <h3 className="tile-home">Acciones disponibles</h3>
-          <div className="container-actions">
+        <section className={styles.container}>
+          <h3 className={styles.tileHome}>Acciones disponibles</h3>
+          <div className={styles.containerActions}>
             <CardTypeTwo
               imagen="src\assets\media\registro_propiedad.jpg"
               titulo="Registrar propiedad digital"
@@ -72,41 +73,41 @@ function Home() {
           </div>
         </section>
 
-        <section className="container">
-          <div className="center topic-relative">
-            <div className="topic-separator">
+        <section className={styles.container}>
+          <div className={`${styles.topicRelative} center`}>
+            <div className={styles.topicSeparator}>
               <Blockchain />
             </div>
 
-            <div className="topics_container">
+            <div className={styles.topicsContainer}>
               <h1>Conoce más sobre...</h1>
 
-              <div className="topic-ooptions">
-                <a className="topic active">Blockchain</a>
-                <a className="topic">Copyright</a>
-                <a className="topic">Derechos de autor</a>
-                <a className="topic">
+              <div className={styles.topicOptions}>
+                <a className={classNames(styles.topic, styles.active)}>Blockchain</a>
+                <a className={classNames(styles.topic)}>Copyright</a>
+                <a className={classNames(styles.topic)}>Derechos de autor</a>
+                <a className={classNames(styles.topic)}>
                   uso correcto de derechos de autor
                 </a>
-                <a className="topic">No sé xd</a>
+                <a className={classNames(styles.topic)}>No sé xd</a>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="entitys">
-          <h3 className="tile-home">Certificado y avalado por:</h3>
-          <div className="validations">
-            <div id="GBMexico" className="validation center">
+        <section className={styles.entitys}>
+          <h3 className={styles.tileHome}>Certificado y avalado por:</h3>
+          <div className={styles.validations}>
+            <div id={styles.GBMexico} className={`${styles.validation} center`}>
               <img src="/logo_blanco.svg" alt="gobierno de México" />
             </div>
-            <div id="CPOffice" className="validation center">
+            <div id={styles.CPOffice} className={`${styles.validation} center`}>
               <img
                 src="src\assets\media\cp-logo2.png"
                 alt="U.S. Copyright Office"
               />
             </div>
-            <div id="RPD" className="validation center">
+            <div id={styles.RPD} className={`${styles.validation} center`}>
               <img src="/favicon.svg" alt="gobierno de México" />
               <h1>RPD</h1>
             </div>

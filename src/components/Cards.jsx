@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./../styles/Cards.css";
+import card from "./../styles/Cards.module.css";
+import classNames from "classnames";
 
 const CardTypeOne = ({ imagen, titulo, descripcion, action }) => {
   const navigate = useNavigate();
@@ -18,12 +19,12 @@ const CardTypeOne = ({ imagen, titulo, descripcion, action }) => {
   }, [imagen]);
 
   return (
-    <div className="card" onClick={Navigate}>
-      <div className="card-image center">
+    <div className={card.card} onClick={Navigate}>
+      <div className={`${card.cardImage} center`}>
         <img src={image} alt="Registrar propiedad" />
       </div>
-      <div className="card-info">
-        <h4 className="card-title">{titulo}</h4>
+      <div className={card.cardInfo}>
+        <h4 className={card.cardTitle}>{titulo}</h4>
         <div>
           <p>{descripcion}</p>
         </div>
@@ -48,19 +49,19 @@ const CardTypeTwo = ({ imagen, titulo, descripcion, subtitle, subinfo, action })
   }, [imagen]);
 
   return (
-    <div className="card cardVertical" onClick={Browse}>
-      <div className="card-image center">
+    <div className={classNames(card.card, card.cardVertical)} onClick={Browse}>
+      <div className={`${card.cardImage} center`}>
         <img src={image} alt="Registrar propiedad" />
       </div>
-      <div className="card-info">
-        <h4 className="card-title">{titulo}</h4>
+      <div className={card.cardInfo}>
+        <h4 className={card.cardTitle}>{titulo}</h4>
         <div>
           <p>{descripcion}</p>
         </div>
       </div>
-      <div className="card-extraInfo">
-          <p>{subtitle}</p>
-          {subinfo}
+      <div className={card.cardExtraInfo}>
+        <p>{subtitle}</p>
+        {subinfo}
       </div>
     </div>
   );
