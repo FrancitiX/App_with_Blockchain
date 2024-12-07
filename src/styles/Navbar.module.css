@@ -13,14 +13,14 @@ header {
     justify-content: space-between;
 }
 
-.nav_left, 
-.app_title {
+.navLeft, 
+.appTitle {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.app_title h1 {
+.appTitle h1 {
     font-size: 30px;
     color: var(--specialText);
     text-decoration-color: var(--text);
@@ -42,7 +42,7 @@ header {
     border: 2px solid var(--text);
 }
 
-.nav_logo {
+.logo {
     height: 30px;
     width: 30px;
     aspect-ratio: 1 / 1;
@@ -84,7 +84,7 @@ header {
     filter: drop-shadow(0 0 5px var(--specialText));
 }
 
-.nav_option .user-image {
+.nav_option .userImage {
     height: 100%;
     width: 100%;
     aspect-ratio: 1 / 1;
