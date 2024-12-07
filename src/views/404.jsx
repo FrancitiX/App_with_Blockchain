@@ -1,4 +1,6 @@
 
+import styles from './../styles/404.module.css'
+
 function error404() {
     return (
         <div>

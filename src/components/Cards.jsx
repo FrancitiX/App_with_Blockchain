@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import card from "./../styles/Cards.module.css";
+import card from "./../styles/components/Cards.module.css";
 import classNames from "classnames";
 
 const CardTypeOne = ({ imagen, titulo, descripcion, action }) => {

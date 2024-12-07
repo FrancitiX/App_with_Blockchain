@@ -1,7 +1,7 @@
 // import {useState} from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./../styles/Menu.module.css";
+import styles from "./../styles/components/Menu.module.css";
 import classNames from "classnames";
 
 function Menu({ active, onClose }) {

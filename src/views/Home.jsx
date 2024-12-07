@@ -25,11 +25,11 @@ function Home() {
         </div>
 
         <section className={styles.container}>
-          <h3 className={styles.tileHome}>Acciones disponibles</h3>
+          <h3 className={styles.tileHome}>Selecciona la acción que requieres realizar</h3>
           <div className={styles.containerActions}>
             <CardTypeTwo
               imagen="src\assets\media\registro_propiedad.jpg"
-              titulo="Registrar propiedad digital"
+              titulo="Servicios de propiedad digital"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
               subtitle="Recuerda contar con: "
@@ -40,7 +40,7 @@ function Home() {
                   <li>No sé xd</li>
                 </ul>
               }
-              action="/ownership-register"
+              action="/digital-register"
             />
 
             <CardTypeOne
@@ -52,21 +52,21 @@ function Home() {
 
             <CardTypeOne
               imagen="src\assets\media\tramites.jpg"
-              titulo="Consultar tramites"
+              titulo="Servicios digitales"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
               imagen="src\assets\media\titulos.jpg"
-              titulo="Revisar titulos disponibles"
+              titulo="Revisar titulos"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
               imagen="src\assets\media\documentos.jpg"
-              titulo="Consulta de Documentos"
+              titulo="Recaudadora virtual"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />

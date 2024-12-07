@@ -1,5 +1,5 @@
 import { useState } from "react";
-import style from "./../styles/Inputs.module.css";
+import style from "./../styles/components/Inputs.module.css";
 import classNames from "classnames";
 
 // InputDefault.props {

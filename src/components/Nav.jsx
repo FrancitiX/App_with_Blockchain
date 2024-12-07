@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
-import styles from "../styles/Navbar.module.css";
+import styles from "../styles/components/Navbar.module.css";
 import classNames from "classnames";
 
 function Navbar() {

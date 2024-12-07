@@ -7,7 +7,7 @@ import Register from './views/Reg';
 import Profile from './views/Profile'
 import About from './views/About'
 import Users from './views/Users'
-import Ownership_Register from './views/Ownership_Register';
+import Digital_Register from './views/R_digital';
 function App() {
     return (
         <Router>
@@ -18,7 +18,7 @@ function App() {
                 <Route path='/profile' element={<Profile />}/>
                 <Route path='/about' element={<About />}/>
                 <Route path='/users' element={<Users />}/>
-                <Route path='/ownership-register' element={<Ownership_Register />}/>
+                <Route path='/digital-register' element={<Digital_Register />}/>
             </Routes>
         </Router>
     );
