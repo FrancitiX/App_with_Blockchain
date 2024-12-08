@@ -5,11 +5,10 @@ import styles from "../styles/components/Navbar.module.css";
 import classNames from "classnames";
 
 function Navbar() {
-  // const [menuActive, setMenuActive] = useState("false");
+  const user = {};
 
-  // const menu = () => {
-  //   setMenuActive()
-  // }
+  const usersVisible = user.type === "admin" ? styles.visible : styles.oculto;
+
   const [menuActive, setMenuActive] = useState(false);
 
   const toggleMenu = () => {
@@ -30,27 +29,27 @@ function Navbar() {
               <div className={styles.menu_bare}></div>
               <div className={styles.menu_bare}></div>
             </div>
-            <div className={styles.appTitle}>
+            <Link to="/Home" className={styles.appTitle}>
               <img
                 className={styles.logo}
-                src="src\assets\media\Logo1.jpeg"
+                src="src/assets/media/Logo3.jpeg"
                 alt="Logo app"
               />
               <h1>RPD</h1>
-            </div>
+            </Link>
           </div>
 
           <div className={styles.nav_options}>
-            <Link to="/users" className={styles.nav_option}>
+            <Link to="/users" id={styles.usuarios} className={classNames(styles.nav_option, usersVisible)}>
               usuarios
             </Link>
 
             <div className={styles.reference}>
-              <Link to="/" className={styles.nav_option}>
+              <Link to="/Home/#actions" id={styles.acciones} className={styles.nav_option}>
                 Acciones disponibles
               </Link>
               <div className={styles.subOption}>
-                <Link to="/" className={styles.nav_subOption}>
+                <Link to="/digital-register" className={styles.nav_subOption}>
                   Servicios
                 </Link>
                 <Link to="/" className={styles.nav_subOption}>
@@ -67,10 +66,13 @@ function Navbar() {
             </div>
 
             <div className={styles.reference}>
-              <Link to="/" className={styles.nav_option}>
+              <Link to="/Home/#topics" id={styles.temas} className={styles.nav_option}>
                 Temas de interés
               </Link>
               <div className={styles.subOption}>
+              <Link to="/" className={styles.nav_subOption}>
+                  Blockchain
+                </Link>
                 <Link to="/" className={styles.nav_subOption}>
                   Copyright
                 </Link>
@@ -87,12 +89,12 @@ function Navbar() {
               </div>
             </div>
 
-            <Link to="/about" className={styles.nav_option}>
+            <Link to="/about" id={styles.nosotros} className={styles.nav_option}>
               Sobre nosotros
             </Link>
             <Link
               to="/profile"
-              className={classNames(styles.nav_option, styles.user)}
+              id={styles.usuario} className={classNames(styles.nav_option, styles.user)}
             >
               <img
                 className={styles.userImage}

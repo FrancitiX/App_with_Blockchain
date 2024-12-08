@@ -8,6 +8,8 @@ import Profile from './views/Profile'
 import About from './views/About'
 import Users from './views/Users'
 import Digital_Register from './views/R_digital';
+import Appointments from './views/Appointments';
+
 function App() {
     return (
         <Router>
@@ -19,6 +21,7 @@ function App() {
                 <Route path='/about' element={<About />}/>
                 <Route path='/users' element={<Users />}/>
                 <Route path='/digital-register' element={<Digital_Register />}/>
+                <Route path='/appointments' element={<Appointments />}/>
             </Routes>
         </Router>
     );

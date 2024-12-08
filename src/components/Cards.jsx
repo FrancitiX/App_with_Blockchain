@@ -33,7 +33,14 @@ const CardTypeOne = ({ imagen, titulo, descripcion, action }) => {
   );
 };
 
-const CardTypeTwo = ({ imagen, titulo, descripcion, subtitle, subinfo, action }) => {
+const CardTypeTwo = ({
+  imagen,
+  titulo,
+  descripcion,
+  subtitle,
+  subinfo,
+  action,
+}) => {
   const navigate = useNavigate();
 
   const Browse = () => {
@@ -67,4 +74,53 @@ const CardTypeTwo = ({ imagen, titulo, descripcion, subtitle, subinfo, action })
   );
 };
 
-export { CardTypeOne, CardTypeTwo };
+const CardUser = ({ userData }) => {
+  const user = userData;
+
+  return (
+    <div className={card.profileContainer}>
+      <div className={card.headerProfile}>
+        <img
+          src={user.profilePicture || "/media/user.png"}
+          alt="Profile"
+          className={card.profileImage}
+        />
+        <h1 className={card.name}>{user.name || "Nombre del Usuario"}</h1>
+        <p className={card.bio}>
+          {user.bio || "Escribe algo sobre ti aquí..."}
+        </p>
+      </div>
+      <div className={card.details}>
+        <h2>Detalles</h2>
+        <p>
+          <span className="material-symbols-outlined">mail</span>
+          {user.email || "correo@ejemplo.com"}
+        </p>
+        <p>
+          <span className="material-symbols-outlined">call</span>{" "}
+          {user.phone || "No especificado"}
+        </p>
+        <p>
+          <span className="material-symbols-outlined">person_pin_circle</span>
+          {user.address || "No especificada"}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const CardUserOption = ({ userData, title, action, icon }) => {
+  // const user = userData;
+
+  return (
+    <div className={card.profileOption}>
+      <h3>{title}</h3>
+      {icon}
+      <a>
+        <strong>{action}</strong>
+      </a>
+    </div>
+  );
+};
+
+export { CardTypeOne, CardTypeTwo, CardUser, CardUserOption };

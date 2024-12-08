@@ -1,3 +1,11 @@
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 12;
+}
+
 /* Modificable */
 .cardsContainer {
   width: 100%;
@@ -79,4 +87,120 @@
 
 .cardExtraInfo {
   padding: 20px;
+}
+
+.profileContainer {
+  position: relative;
+  width: 50%;
+  min-width: 300px;
+  min-height: 78vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  background-color: var(--bgColor);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.headerProfile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.profileImage {
+  /* position: absolute; */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 4px solid var(--detail3);
+  cursor: pointer;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.bio {
+  font-size: 16px;
+  color: var(--text3);
+}
+
+.details {
+  width: 90%;
+}
+
+.details h2 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 15px;
+  color: var(--specialText);
+}
+
+.details p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 20px 0px;
+  color: var(--text);
+}
+
+.details span {
+  margin-right: 5px;
+}
+
+.details strong {
+  font-weight: bold;
+}
+
+.profileOption {
+  aspect-ratio: 1.3 / 1;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bgColor);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.3s ease-in;
+}
+
+.profileOption:hover {
+  transform: scale(1.03);
+}
+
+.profileOption h3 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.profileOption span {
+  padding: 10px;
+  font-size: 50px;
+  color: var(--text);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profileOption a {
+  color: var(--specialText);
+  font-size: var(--textSize1);
+  cursor: pointer;
+}
+
+.profileOption a:hover {
+  text-decoration: underline;
 }

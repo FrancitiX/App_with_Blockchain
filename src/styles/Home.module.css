@@ -1,13 +1,10 @@
 main {
   min-height: 100vh;
-  padding: 0 100px;
 }
 
 .background {
-  width: 100%;
   height: 80vh;
-  margin-top: 30px;
-  margin-bottom: 80px;
+  margin: 30px 100px 80px 100px;
   background-image: url("./../assets/media/fondo1.jpg");
   background-position: center;
   background-size: cover;
@@ -48,10 +45,12 @@ main {
 
 .container {
   min-height: 90vh;
+  padding: 8vh 100px 0px;
 }
 
 .container2 {
   min-height: 50vh;
+  padding: 8vh 100px 0px;
 }
 
 .tile-home {
@@ -69,14 +68,12 @@ main {
 }
 
 .topicRelative {
-  margin-top: 15vh;
   align-items: start;
 }
 
 .topicSeparator {
   padding: 0px;
   width: 60%;
-  /* border: 1px solid var(--detail3); */
   border-radius: 30px;
 }
 
@@ -111,6 +108,7 @@ main {
   background-color: var(--bgColor2);
   border-radius: 8px;
   border: 1px solid #ddd;
+  overflow: hidden;
 }
 
 .topic {
@@ -131,7 +129,7 @@ main {
 .topic:hover {
   background-color: var(--text3);
   border-color: var(--datail3);
-  color: var(--specialText);
+  color: var(--text2);
   cursor: pointer;
 }
 
@@ -150,7 +148,7 @@ main {
 
 
 .entitys {
-  margin-top: 30vh;
+  margin: 25vh 100px 0px;
   text-align: center;
   background: var(--bgColor2);
   border-radius: 40px 40px 0px 0px;
@@ -191,7 +189,7 @@ main {
 }
 
 #RPD img {
-  max-width: 100px;
+  max-width: 70px;
 }
 
 #RPD h1 {
@@ -201,90 +199,101 @@ main {
   text-decoration-color: var(--text);
 }
 
-@media screen and (max-width: 600px) {
-  main {
-    padding: 0 20px;
+
+@media screen and (max-width: 450px) {
+
+  .container {
+    padding: 8vh 0px 0px;
   }
 
-  .topic-relative {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+  .container2 {
+    padding: 8vh 0px 0px;
   }
 
-  .topic-separator {
-    width: 100%;
-    text-align: center;
-    background: var(--bgColor);
-    order: 2;
+  .containerActions {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 3fr));
+    gap: 10px;
   }
 
-  .topic_text {
+  .topicOptions {
     padding: 0;
   }
 
-  .topics_container {
-    width: 100%;
-    order: 1;
+  .validations {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .container {
+    padding: 8vh 20px 0px;
   }
 }
 
 @media screen and (max-width: 750px) {
-  main {
-    padding: 0 30px;
+
+  .background {
+    margin: 0px 0px 80px 0px !important; 
+    border-radius: 0px;
   }
 
-  /* .topic-relative {
-    display: flex;
+  .container {
+    padding: 8vh 30px 0px;
+  }
+
+  .topicRelative {
     flex-direction: column;
-    align-items: center;
-    justify-content: start;
   }
 
-  .topic-separator {
-    width: 100%;
+  .topicSeparator {
     text-align: center;
-    background: var(--bgColor);
+    padding: 0px;
+    width: 100% !important;
     order: 2;
   }
 
-  .topic_text {
-    padding: 0;
-  }
-
-  .topics_container {
+  .topicsContainer {
+    text-align: center;
+    padding-bottom: 50px;
     width: 100%;
     order: 1;
-  } */
+  }
+
+  .topicsContainer h1 {
+    font-size: 18px;
+  }
+
+  .topicText {
+    padding: 0px;
+  }
+
+  .entitys {
+    margin: 25vh 0px 0px;
+  }
 }
 
 
 @media screen and (max-width: 1000px) {
-  main {
-    padding: 0 40px;
+
+  .background {
+    margin: 30px 40px 80px 40px;
   }
 
-  /* .topic-relative {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+  .container {
+    padding: 8vh 40px 0px;
   }
 
-  .topic-separator {
-    width: 100%;
-    text-align: center;
-    background: var(--bgColor);
-    order: 2;
+  .topicSeparator {
+    width: 70%;
   }
 
-  .topic_text {
-    padding: 0;
+  .topicOptions {
+    gap: 0;
   }
 
-  .topics_container {
-    width: 100%;
-    order: 1;
-  } */
+  .topic {
+    border-radius: 0;
+  }
+
 }

@@ -1,16 +1,36 @@
+import { useState, useEffect } from "react";
 import Navbar from "./../components/Nav";
 import Footer from "../components/Footer";
 import { CardTypeOne, CardTypeTwo } from "../components/Cards";
+import { useLocation } from 'react-router-dom';
 import { Blockchain } from "../components/Info";
 import styles from "./../styles/Home.module.css";
 import classNames from "classnames";
 
 function Home() {
+  const [activeTopic, setActiveTopic] = useState("Blockchain"); // Estado inicial
+
+  const topicActive = (topicName) => {
+    setActiveTopic(topicName); // Actualiza el estado con el tema activo
+  };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Navbar />
 
       <main>
+        
         <div className={styles.background}>
           <div className={`${styles.holder} center`}>
             <h1>Registro para tus propiedades digitales</h1>
@@ -24,8 +44,10 @@ function Home() {
           </div>
         </div>
 
-        <section className={styles.container}>
-          <h3 className={styles.tileHome}>Selecciona la acción que requieres realizar</h3>
+        <section id="actions" className={styles.container}>
+          <h3 className={styles.tileHome}>
+            Selecciona la acción que requieres realizar
+          </h3>
           <div className={styles.containerActions}>
             <CardTypeTwo
               imagen="src\assets\media\registro_propiedad.jpg"
@@ -73,23 +95,40 @@ function Home() {
           </div>
         </section>
 
-        <section className={styles.container}>
+        <section id="topics" className={styles.container}>
           <div className={`${styles.topicRelative} center`}>
             <div className={styles.topicSeparator}>
               <Blockchain />
             </div>
- 
+
             <div className={styles.topicsContainer}>
               <h1>Conoce más sobre...</h1>
 
               <div className={styles.topicOptions}>
-                <a className={classNames(styles.topic, styles.active)}>Blockchain</a>
-                <a className={classNames(styles.topic)}>Copyright</a>
-                <a className={classNames(styles.topic)}>Derechos de autor</a>
-                <a className={classNames(styles.topic)}>
+                {/* <a className={classNames(styles.topic, styles.active)} onClick={topicActive}>Blockchain</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>Copyright</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>Derechos de autor</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>
                   uso correcto de derechos de autor
                 </a>
-                <a className={classNames(styles.topic)}>No sé xd</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>No sé xd</a> */}
+                {[
+                  "Blockchain",
+                  "Copyright",
+                  "Derechos de autor",
+                  "Uso correcto de derechos de autor",
+                  "No sé xd",
+                ].map((topic) => (
+                  <a
+                    key={topic}
+                    className={classNames(styles.topic, {
+                      [styles.active]: activeTopic === topic,
+                    })}
+                    onClick={() => topicActive(topic)}
+                  >
+                    {topic}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

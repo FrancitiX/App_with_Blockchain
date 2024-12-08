@@ -18,5 +18,7 @@ npm install
 npm install prop-types
 npm install react-router-dom
 npm install classnames
+npm install -g truffle
+npm install ethers
 
 */

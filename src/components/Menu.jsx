@@ -43,11 +43,12 @@ function Menu({ active, onClose }) {
           <div className={styles.appTitle}>
             <img
               className={styles.logo}
-              src="src\assets\media\Logo1.jpeg"
+              src="src\assets\media\Logo3.jpeg"
               alt="Logo app"
             />
             <h1>RPD</h1>
           </div>
+          <span id={styles.close} onClick={onClose} className="material-symbols-outlined">close</span>
           <div className={styles.underline}></div>
         </section>
 

@@ -99,7 +99,7 @@ const InputPassword = ({ name, id, placeHolder }) => {
 
 const Selector = ({ name, id, title, options }) => {
   return (
-    <div className={style.inputContain}>
+    <div className={style.selectorContain}>
       <label htmlFor={id}>{title}</label>
       <select className={style.Selector} name={name} id={id}>
         {options}

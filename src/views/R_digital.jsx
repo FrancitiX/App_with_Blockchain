@@ -5,11 +5,11 @@ import { InputDefault, Selector } from "../components/Inputs";
 function R_digital() {
   return (
     <>
-      <main>
+      <main className="container">
         <div>
           <h1>Servicio de propiedad digital</h1>
         </div>
-        <section>
+        <section className={styles}>
           <div>
             <Selector
               name="tipo"
@@ -29,7 +29,9 @@ function R_digital() {
                 </>
               }
             />
-            <p>Realice la busqueda de alguna propiedad suya para modificarla </p>
+            <p>
+              Realice la busqueda de alguna propiedad suya para modificarla{" "}
+            </p>
 
             <div>
               <InputDefault
@@ -61,6 +63,14 @@ function R_digital() {
                 name="title"
                 id="title"
                 placeHolder="Nombre del material"
+                req={true}
+              />
+
+              <InputDefault
+                type="text"
+                name="title"
+                id="title"
+                placeHolder="Descripción"
                 req={true}
               />
 

@@ -136,6 +136,27 @@ styles.css */
   -ms-user-select: none;
 }
 
+.selectorContain {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.selectorContain label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  padding: 0px 8px;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bgColor);
+  pointer-events: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  z-index: 10;
+}
+
 .Selector {
   font-size: 15px;
   padding: 12px 10px;

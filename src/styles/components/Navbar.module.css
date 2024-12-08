@@ -18,6 +18,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  text-decoration: none;
 }
 
 .appTitle h1 {
@@ -124,7 +125,6 @@ header {
   overflow: hidden;
   /* transform: translateY(-250px); */
   transition: all 0.5s;
-  z-index: -1;
   opacity: 0;
 }
 
@@ -143,4 +143,64 @@ header {
 .subOption .nav_subOption:hover {
   color: var(--text2);
   background: var(--detail2);
+}
+
+.visible {
+  display: block;
+}
+
+.oculto {
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+
+  #acciones {
+    display: none;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+
+  header {
+    padding: 0px 20px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .nav_options {
+    min-width: auto;
+    gap: 20px;
+  }
+
+  #temas {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 850px) {
+
+  #usuarios {
+    display: none;  
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+  header {
+    padding: 0px 40px;
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+  #nosotros {
+    display: none;
+  }
 }
