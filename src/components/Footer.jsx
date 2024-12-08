@@ -1,10 +1,10 @@
 // import React from "react";
-import "./../styles/Footer.css";
+import styles from "./../styles/components/Footer.module.css";
 
 function Footer() {
   return (
     <footer>
-      <div className="footer-container">
+      <div className={styles.footerContainer}>
         <div>
           <img src="src\assets\media\jalisco.png" alt="JALISCO" />
         </div>
@@ -22,7 +22,7 @@ function Footer() {
           <img src="src\assets\media\jalisco.png" alt="JALISCO" />
         </div>
       </div>
-      <div className="copyright">SmartOrder &copy;2024</div>
+      <div className={styles.copyright}>SmartOrder &copy;2024</div>
     </footer>
   );
 }

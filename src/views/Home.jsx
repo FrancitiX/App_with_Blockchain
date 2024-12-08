@@ -1,20 +1,41 @@
+import { useState, useEffect } from "react";
 import Navbar from "./../components/Nav";
 import Footer from "../components/Footer";
 import { CardTypeOne, CardTypeTwo } from "../components/Cards";
+import { useLocation } from 'react-router-dom';
 import { Blockchain } from "../components/Info";
-import "./../styles/Home.css";
+import styles from "./../styles/Home.module.css";
+import classNames from "classnames";
 
 function Home() {
+  const [activeTopic, setActiveTopic] = useState("Blockchain"); // Estado inicial
+
+  const topicActive = (topicName) => {
+    setActiveTopic(topicName); // Actualiza el estado con el tema activo
+  };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+      }
+    }
+  }, [location]);
+
   return (
     <>
       <Navbar />
 
       <main>
-        <div className="background">
-          <div className="holder center">
+        
+        <div className={styles.background}>
+          <div className={`${styles.holder} center`}>
             <h1>Registro para tus propiedades digitales</h1>
-            <div className="subHolder">
-              <span className="bc">
+            <div className={styles.subHolder}>
+              <span className={styles.bc}>
                 Con el uso de blockchain podemos mejorar el trato a las
                 propiedades digitales y tecnologicas
               </span>
@@ -23,12 +44,14 @@ function Home() {
           </div>
         </div>
 
-        <section className="container">
-          <h3 className="tile-home">Acciones disponibles</h3>
-          <div className="container-actions">
+        <section id="actions" className={styles.container}>
+          <h3 className={styles.tileHome}>
+            Selecciona la acción que requieres realizar
+          </h3>
+          <div className={styles.containerActions}>
             <CardTypeTwo
               imagen="src\assets\media\registro_propiedad.jpg"
-              titulo="Registrar propiedad digital"
+              titulo="Servicios de propiedad digital"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
               subtitle="Recuerda contar con: "
@@ -39,7 +62,7 @@ function Home() {
                   <li>No sé xd</li>
                 </ul>
               }
-              action="/ownership-register"
+              action="/digital-register"
             />
 
             <CardTypeOne
@@ -51,62 +74,79 @@ function Home() {
 
             <CardTypeOne
               imagen="src\assets\media\tramites.jpg"
-              titulo="Consultar tramites"
+              titulo="Servicios digitales"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
               imagen="src\assets\media\titulos.jpg"
-              titulo="Revisar titulos disponibles"
+              titulo="Revisar titulos"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
 
             <CardTypeOne
               imagen="src\assets\media\documentos.jpg"
-              titulo="Consulta de Documentos"
+              titulo="Recaudadora virtual"
               descripcion="En este espacio podras realizar el registro de tu propiedad
                     digital"
             />
           </div>
         </section>
 
-        <section className="container">
-          <div className="center topic-relative">
-            <div className="topic-separator">
+        <section id="topics" className={styles.container}>
+          <div className={`${styles.topicRelative} center`}>
+            <div className={styles.topicSeparator}>
               <Blockchain />
             </div>
 
-            <div className="topics_container">
+            <div className={styles.topicsContainer}>
               <h1>Conoce más sobre...</h1>
 
-              <div className="topic-ooptions">
-                <a className="topic active">Blockchain</a>
-                <a className="topic">Copyright</a>
-                <a className="topic">Derechos de autor</a>
-                <a className="topic">
+              <div className={styles.topicOptions}>
+                {/* <a className={classNames(styles.topic, styles.active)} onClick={topicActive}>Blockchain</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>Copyright</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>Derechos de autor</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>
                   uso correcto de derechos de autor
                 </a>
-                <a className="topic">No sé xd</a>
+                <a className={classNames(styles.topic)} onClick={topicActive}>No sé xd</a> */}
+                {[
+                  "Blockchain",
+                  "Copyright",
+                  "Derechos de autor",
+                  "Uso correcto de derechos de autor",
+                  "No sé xd",
+                ].map((topic) => (
+                  <a
+                    key={topic}
+                    className={classNames(styles.topic, {
+                      [styles.active]: activeTopic === topic,
+                    })}
+                    onClick={() => topicActive(topic)}
+                  >
+                    {topic}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="entitys">
-          <h3 className="tile-home">Certificado y avalado por:</h3>
-          <div className="validations">
-            <div id="GBMexico" className="validation center">
+        <section className={styles.entitys}>
+          <h3 className={styles.tileHome}>Certificado y avalado por:</h3>
+          <div className={styles.validations}>
+            <div id={styles.GBMexico} className={`${styles.validation} center`}>
               <img src="/logo_blanco.svg" alt="gobierno de México" />
             </div>
-            <div id="CPOffice" className="validation center">
+            <div id={styles.CPOffice} className={`${styles.validation} center`}>
               <img
                 src="src\assets\media\cp-logo2.png"
                 alt="U.S. Copyright Office"
               />
             </div>
-            <div id="RPD" className="validation center">
+            <div id={styles.RPD} className={`${styles.validation} center`}>
               <img src="/favicon.svg" alt="gobierno de México" />
               <h1>RPD</h1>
             </div>

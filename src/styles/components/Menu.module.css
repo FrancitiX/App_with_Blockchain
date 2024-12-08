@@ -6,12 +6,16 @@ menu {
   margin: 0;
   padding: 0;
   position: fixed;
-  z-index: 20;
+  z-index: 50;
   transition: left 0.3s ease-in-out;
 }
 
 .active {
   left: 0;
+}
+
+#close {
+  display: none;
 }
 
 .modal {
@@ -32,7 +36,7 @@ menu {
   display: block;
 }
 
-.menu_container {
+.menuContainer {
   height: 100vh;
   width: 20%;
   min-width: 280px;
@@ -46,7 +50,7 @@ menu {
   z-index: 21;
 }
 
-.menu_container section {
+.menuContainer section {
   margin-bottom: 30px;
   width: 100%;
   display: flex;
@@ -54,8 +58,22 @@ menu {
   align-items: center;
 }
 
-.title_app {
+.appTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleApp {
   text-align: center;
+}
+
+.logo {
+  height: 30px;
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  margin-right: 10px;
 }
 
 .underline {
@@ -89,7 +107,7 @@ menu {
   transform: scale(0.98);
 }
 
-.options .menu_option {
+.options .menuOption {
   padding: 20px 10px;
   margin-bottom: 15px;
   text-align: center;
@@ -100,7 +118,7 @@ menu {
   transform: scale(0.9);
 }
 
-.options .menu_option:hover {
+.options .menuOption:hover {
   background: rgba(0, 0, 0, 0.2);
   color: var(--specialText2);
   transform: scale(0.98);
@@ -173,3 +191,23 @@ menu {
 /* .switch input:checked + .themeSwitch {
   background-color: rgb(250, 250, 250);
 } */
+
+@media screen and (max-width: 450px) {
+
+  .menuContainer {
+    width: 100%;
+  }
+  
+  #close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 30px;
+    background: var(--bgColor2);
+    border: 1px solid var(--detail);
+    display: block;
+    cursor: pointer;
+  }
+
+}

@@ -7,7 +7,7 @@ footer {
     border-top: 1px solid var(--detail);
 }
 
-.footer-container {
+.footerContainer {
     margin-top: 50px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 3fr));
@@ -19,3 +19,11 @@ footer {
     padding-bottom: 20px;
     text-align: center;
 }
+
+@media screen and (max-width: 450px) {
+
+    .footerContainer {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
+    }
+    
+  }
