@@ -6,8 +6,8 @@ import classNames from "classnames";
 //     type: String,
 // }
 
-const InputDefault = ({ type, name, id, placeHolder, req }) => {
-  const [value, setValue] = useState("");
+const InputDefault = ({ type, name, id, placeHolder, req, value, change }) => {
+  // const [value, setValue] = useState("");
 
   return (
     <div className={style.inputContain}>
@@ -18,15 +18,15 @@ const InputDefault = ({ type, name, id, placeHolder, req }) => {
         id={id}
         required={req ? true : undefined}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={change}
       />
       <label htmlFor={id}>{placeHolder}</label>
     </div>
   );
 };
 
-const InputMedio = ({ type, name, id, placeHolder, req }) => {
-  const [value, setValue] = useState("");
+const InputMedio = ({ type, name, id, placeHolder, req, value, change }) => {
+  // const [value, setValue] = useState("");
 
   return (
     <div className={style.inputContain_medio}>
@@ -37,15 +37,15 @@ const InputMedio = ({ type, name, id, placeHolder, req }) => {
         id={id}
         required={req ? true : undefined}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={change}
       />
       <label htmlFor={id}>{placeHolder}</label>
     </div>
   );
 };
 
-const InputUser = ({ type, name, id, placeHolder, req }) => {
-  const [value, setValue] = useState("");
+const InputUser = ({ type, name, id, placeHolder, req, value, change }) => {
+  // const [value, setValue] = useState("");
 
   return (
     <div className={style.inputContain}>
@@ -56,7 +56,7 @@ const InputUser = ({ type, name, id, placeHolder, req }) => {
         id={id}
         required={req ? true : undefined}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={change}
       />
       <div className={style.passwordVisible}>
         <span className="material-symbols-outlined">person</span>
@@ -66,8 +66,7 @@ const InputUser = ({ type, name, id, placeHolder, req }) => {
   );
 };
 
-const InputPassword = ({ name, id, placeHolder }) => {
-  const [value, setValue] = useState("");
+const InputPassword = ({ name, id, placeHolder, value, change }) => {
   const [visible, setVisible] = useState(false);
 
   const passwordVisible = () => {
@@ -83,7 +82,7 @@ const InputPassword = ({ name, id, placeHolder }) => {
         id={id}
         required
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={change}
       />
       <div className={style.passwordVisible} onClick={passwordVisible}>
         {visible ? (
@@ -97,11 +96,11 @@ const InputPassword = ({ name, id, placeHolder }) => {
   );
 };
 
-const Selector = ({ name, id, title, options }) => {
+const Selector = ({ name, id, title, options, change }) => {
   return (
     <div className={style.selectorContain}>
       <label htmlFor={id}>{title}</label>
-      <select className={style.Selector} name={name} id={id}>
+      <select className={style.Selector} name={name} id={id} onChange={change}>
         {options}
       </select>
     </div>

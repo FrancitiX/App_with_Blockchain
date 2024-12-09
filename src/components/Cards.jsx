@@ -33,14 +33,7 @@ const CardTypeOne = ({ imagen, titulo, descripcion, action }) => {
   );
 };
 
-const CardTypeTwo = ({
-  imagen,
-  titulo,
-  descripcion,
-  subtitle,
-  subinfo,
-  action,
-}) => {
+const CardTypeTwo = ({imagen, titulo, descripcion, subtitle, subinfo, action }) => {
   const navigate = useNavigate();
 
   const Browse = () => {

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./../styles/Sesion.module.css";
 import {
   InputUser,
   InputPassword,
@@ -8,22 +7,56 @@ import {
   InputMedio,
   Selector,
 } from "./../components/Inputs";
+import { postUsuario } from "../functions/usuario";
+import styles from "./../styles/Sesion.module.css";
 
 function Register() {
   const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    name: "",
+    paternal_surname: "",
+    maternal_surname: "",
+    user_name: "",
+    email: "",
+    password: "",
+    type: 2
+  });
+
   const navigate = useNavigate();
 
   const handleNext = () => {
+    if (step === 1 && !formData.name) {
+      alert("Por favor, ingresa tu nombre.");
+      return;
+    }
     setStep(step + 1);
   };
-
-  // const Home = () => {
-  //   navigate("/Home");
-  // };
 
   const Login = () => {
     navigate("/");
   };
+
+  const change = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(formData);
+  };
+
+  const Registrar = async () => {
+    const isRegistered = await postUsuario(formData);
+    if (isRegistered) {
+      navigate("/");
+    }
+  };
+
+  const userTypes = [
+    { value: 2, label: "Notario" },
+    { value: 3, label: "Corredor público" },
+    { value: 4, label: "Usuario general" },
+  ];
 
   return (
     <>
@@ -36,7 +69,7 @@ function Register() {
           />
           <h1 className={styles.title}>Registro</h1>
 
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <div className="center">
               <p className={styles.helpText}>
                 Ingresa un usuario y contraseña para crear tu usuario
@@ -47,24 +80,30 @@ function Register() {
               <div className={styles.form_group}>
                 <InputDefault
                   type="text"
-                  name="firstName"
-                  id="firstNameInput"
+                  name="name"
+                  id="name"
                   placeHolder="Nombre"
+                  value={formData.name}
+                  change={change}
                   req={true}
                 />
                 <div className={styles.twoInputs}>
                   <InputMedio
                     type="text"
-                    name="lastName"
-                    id="lastNameInput"
+                    name="paternal_surname"
+                    id="paternal_surname"
                     placeHolder="Apellido Paterno"
+                    value={formData.paternal_surname}
+                    change={change}
                     req={true}
                   />
                   <InputMedio
                     type="text"
-                    name="motherLastName"
-                    id="motherLastNameInput"
+                    name="maternal_surname"
+                    id="maternal_surname"
                     placeHolder="Apellido Materno"
+                    value={formData.maternal_surname}
+                    change={change}
                     req={true}
                   />
                 </div>
@@ -83,9 +122,11 @@ function Register() {
               <div className={styles.form_group}>
                 <InputUser
                   type="text"
-                  name="user"
-                  id="userInput"
+                  name="user_name"
+                  id="user_name"
                   placeHolder="Usuario"
+                  value={formData.user}
+                  change={change}
                   req={true}
                 />
                 <InputUser
@@ -93,6 +134,8 @@ function Register() {
                   name="email"
                   id="emailInput"
                   placeHolder="Correo"
+                  value={formData.email}
+                  change={change}
                   req={true}
                 />
                 <button
@@ -108,24 +151,29 @@ function Register() {
             {step === 3 && (
               <div className={styles.form_group}>
                 <Selector
-                  name="type-user"
-                  id="type-user"
+                  name="type"
+                  id="type"
                   title="Tipo de usuario"
-                  options={
-                    <>
-                      <option value="1">Notario</option>
-                      <option value="2">Corredor público</option>
-                      <option value="3">Usuaieo general</option>
-                    </>
-                  }
+                  options={userTypes.map((type) => (
+                    <option key={type.value} value={type.value}>
+                      {type.label}
+                    </option>
+                  ))}
+                  change={change}
                 />
 
                 <InputPassword
                   name="password"
-                  id="passwordInput"
+                  id="password"
                   placeHolder="Contraseña"
+                  value={formData.password}
+                  change={change}
                 />
-                <button type="button" onClick={Login} className={styles.next}>
+                <button
+                  type="button"
+                  onClick={Registrar}
+                  className={styles.next}
+                >
                   Registrar
                 </button>
               </div>

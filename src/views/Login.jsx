@@ -1,19 +1,36 @@
-// import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./../styles/Sesion.module.css";
 import { InputUser, InputPassword } from "./../components/Inputs";
+import { startUsuario } from "../functions/usuario";
+import styles from "./../styles/Sesion.module.css";
 import classNames from 'classnames';
 
 function Login() {
 
   const navigate = useNavigate();
 
+  const [formData, setFormData] = useState({
+    user: "".trim(),
+    password: "".trim(), 
+  });
+
   const Register = () => {
     navigate("/register");
   };
 
-  const Home = () => {
-    navigate("/Home");
+  const change = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const Login = async () => {
+    const login = await startUsuario(formData);
+    if (login) {
+      navigate("/Home");
+    }
   };
 
   return (
@@ -34,20 +51,24 @@ function Login() {
               <InputUser
                 type="text"
                 name="user"
-                id="userInput"
+                id="user"
                 placeHolder="Usuario"
+                value={formData.user}
+                change={change}
                 req={true}
               />
             </div>
 
             <InputPassword
               name="password"
-              id="passwordInput"
+              id="password"
               placeHolder="Contrseña"
+              value={formData.password}
+              change={change}
             />
 
             <div>
-              <button className={classNames(styles.buttonSesion, styles.next)} type="button" onClick={Home}>
+              <button className={classNames(styles.buttonSesion, styles.next)} type="button" onClick={Login}>
                 Iniciar sesión
               </button>
             </div>
