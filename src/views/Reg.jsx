@@ -12,6 +12,7 @@ import styles from "./../styles/Sesion.module.css";
 
 function Register() {
   const [step, setStep] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     paternal_surname: "",
@@ -32,17 +33,12 @@ function Register() {
     setStep(step + 1);
   };
 
-  const Login = () => {
-    navigate("/");
-  };
-
   const change = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    console.log(formData);
   };
 
   const Registrar = async () => {
@@ -57,6 +53,11 @@ function Register() {
     { value: 3, label: "Corredor público" },
     { value: 4, label: "Usuario general" },
   ];
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
 
   return (
     <>
