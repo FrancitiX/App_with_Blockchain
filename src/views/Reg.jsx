@@ -11,18 +11,19 @@ import {
 
 function Register() {
   const [step, setStep] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para el modal
   const navigate = useNavigate();
 
   const handleNext = () => {
     setStep(step + 1);
   };
 
-  // const Home = () => {
-  //   navigate("/Home");
-  // };
-
   const Login = () => {
     navigate("/");
+  };
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -115,7 +116,7 @@ function Register() {
                     <>
                       <option value="1">Notario</option>
                       <option value="2">Corredor público</option>
-                      <option value="3">Usuaieo general</option>
+                      <option value="3">Usuario general</option>
                     </>
                   }
                 />
@@ -132,14 +133,59 @@ function Register() {
             )}
 
             <div className={styles.other_sesion}>
-              <p>Ya tienes cuenta?</p>
-              <button className={styles.noButton} type="button" onClick={Login}>
-                Iniciar Sesion
+              <button
+                className={styles.noButton}
+                type="button"
+                onClick={toggleModal}
+              >
+                Términos y Condiciones
               </button>
             </div>
           </form>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>Términos y Condiciones</h2>
+            <p>
+              **Última actualización:** 8 de diciembre de 2024
+              <br />
+              Bienvenido a nuestra plataforma de registro de propiedades
+              digitales. Al utilizar nuestros servicios, aceptas los siguientes
+              términos y condiciones. Si no estás de acuerdo con ellos, no
+              deberás usar esta plataforma.
+            </p>
+            <h3>Definiciones</h3>
+            <p>
+              <strong>Propiedad Digital:</strong> Se refiere a cualquier activo
+              intangible registrado a través de nuestra plataforma, como
+              derechos de autor, marcas, o cualquier contenido digital protegido
+              por la ley.
+            </p>
+            <p>
+              <strong>Usuario:</strong> Persona física o jurídica que utiliza la
+              plataforma para registrar propiedades digitales.
+            </p>
+            <h3>Contacto</h3>
+            <p>
+              Si tienes preguntas o necesitas más información, contáctanos en:
+              <br />
+              <strong>Correo:</strong> smartorder@gmail.com
+              <br />
+              <strong>Teléfono:</strong> +52 33 3658 2647
+            </p>
+            <button
+              className={styles.closeButton}
+              type="button"
+              onClick={toggleModal}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }

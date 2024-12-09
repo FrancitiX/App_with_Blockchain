@@ -7,6 +7,10 @@ import classNames from "classnames";
 function Menu({ active, onClose }) {
   const navigate = useNavigate();
 
+  const goToProperties = () => {
+    navigate("/properties");
+  };
+
   const Login = () => {
     navigate("/");
   };
@@ -54,7 +58,7 @@ function Menu({ active, onClose }) {
 
         <ul className={styles.options}>
           <div className={styles.menuOption}>Registrar Propiedad</div>
-          <div className={styles.menuOption}>Mis propiedades</div>
+          <div className={styles.menuOption}onClick={goToProperties}>Mis propiedades</div>
           <div className={styles.menu_no_option}>
             <p>
               Tema:{" "}

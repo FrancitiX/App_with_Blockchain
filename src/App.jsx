@@ -5,6 +5,7 @@ import Login from './views/Login';
 import Home from './views/Home';
 import Register from './views/Reg';
 import Profile from './views/Profile'
+import Properties from './views/Properties';
 import About from './views/About'
 import Users from './views/Users'
 import Digital_Register from './views/R_digital';
@@ -18,6 +19,7 @@ function App() {
                 <Route path="/Register" element={<Register />} />
                 <Route path='/home' element={<Home />}/>
                 <Route path='/profile' element={<Profile />}/>
+                <Route path='/properties' element={<Properties />} />
                 <Route path='/about' element={<About />}/>
                 <Route path='/users' element={<Users />}/>
                 <Route path='/digital-register' element={<Digital_Register />}/>
