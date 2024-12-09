@@ -10,7 +10,7 @@ function Profile() {
       <Navbar />
 
       {/* <main className={`${styles.background} center`}> */}
-      <main className={styles.background}>
+      <main className={styles.bg}>
         <div className={styles.containerUser}>
           <div className={styles.containerUserOptions}>
             <CardUser userData={""} />
@@ -43,6 +43,13 @@ function Profile() {
                   <span className="material-symbols-outlined">copyright</span>
                 }
                 action="Ver propiedades digitales"
+              />
+
+              <CardUserOption
+                userData={""}
+                title="Direcciones"
+                icon={<span className="material-symbols-outlined">map</span>}
+                action="Ver mis direcciones"
               />
 
               <CardUserOption
