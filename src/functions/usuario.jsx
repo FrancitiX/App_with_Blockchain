@@ -54,6 +54,7 @@ async function startUsuario(formData) {
       const result = await response.json();
       if (result.status === "ok") {
         localStorage.setItem("usuario", result.usuario);
+        localStorage.setItem('authToken', response.token);
         return true;
       } else {
         alert(result.data || "Ocurrió un error");
