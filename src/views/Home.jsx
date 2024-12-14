@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
 import Navbar from "./../components/Nav";
 import Footer from "../components/Footer";
+import { userData } from "../functions/usuario";
 import { CardTypeOne, CardTypeTwo } from "../components/Cards";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { Blockchain } from "../components/Info";
 import styles from "./../styles/Home.module.css";
 import classNames from "classnames";
 
 function Home() {
-  const [activeTopic, setActiveTopic] = useState("Blockchain"); // Estado inicial
+  userData();
+  const [activeTopic, setActiveTopic] = useState("Blockchain");
+  const User_name =
+    localStorage.getItem("userName") || sessionStorage.getItem("userName");
 
   const topicActive = (topicName) => {
     setActiveTopic(topicName); // Actualiza el estado con el tema activo
@@ -20,20 +24,21 @@ function Home() {
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [location]);
+
+  
 
   return (
     <>
       <Navbar />
 
       <main>
-        
         <div className={styles.background}>
           <div className={`${styles.holder} center`}>
-            <h1>Registro para tus propiedades digitales</h1>
+            <h1>Registro para tus propiedades digitales {User_name}</h1>
             <div className={styles.subHolder}>
               <span className={styles.bc}>
                 Con el uso de blockchain podemos mejorar el trato a las

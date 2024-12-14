@@ -5,9 +5,10 @@ import styles from "../styles/components/Navbar.module.css";
 import classNames from "classnames";
 
 function Navbar() {
-  const user = {};
+  const user = JSON.parse(localStorage.getItem("usuario"));
 
-  const usersVisible = user.type === "admin" ? styles.visible : styles.oculto;
+  const adminVisible = user.type === "1" ? styles.visible : styles.oculto;
+  const modVisible = user.type === "2" ? styles.visible : styles.oculto;
 
   const [menuActive, setMenuActive] = useState(false);
 
@@ -40,8 +41,12 @@ function Navbar() {
           </div>
 
           <div className={styles.nav_options}>
-            <Link to="/users" id={styles.usuarios} className={classNames(styles.nav_option, usersVisible)}>
-              usuarios
+            <Link to="/users" id={styles.usuarios} className={classNames(styles.nav_option, adminVisible)}>
+              Administración
+            </Link>
+
+            <Link to="/users" id={styles.usuarios} className={classNames(styles.nav_option, modVisible)}>
+              Solicitudes
             </Link>
 
             <div className={styles.reference}>

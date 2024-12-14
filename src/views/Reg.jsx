@@ -2,17 +2,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   InputUser,
+  InputEmail,
   InputPassword,
   InputDefault,
   InputMedio,
   Selector,
 } from "./../components/Inputs";
+import { Modal } from "../components/Modal";
 import { postUsuario } from "../functions/usuario";
 import styles from "./../styles/Sesion.module.css";
+import classNames from "classnames";
 
-function Register() {
+function Register({ iniciar_sesion, visible }) {
   const [step, setStep] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [acept, setAcept] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     paternal_surname: "",
@@ -20,17 +23,44 @@ function Register() {
     user_name: "",
     email: "",
     password: "",
-    type: 2
+    type: 2,
   });
 
   const navigate = useNavigate();
+  const [button1, setButton1] = useState("Iniciar sesión");
+  const [button2, setButton2] = useState("Siguiente");
+  const [menuActive, setMenuActive] = useState(false);
 
-  const handleNext = () => {
-    if (step === 1 && !formData.name) {
-      alert("Por favor, ingresa tu nombre.");
-      return;
+  const Next = () => {
+    if (step === 3) {
+      if (acept) {
+        Registrar();
+      } else {
+        alert("Por favor acepte los terminos y condiciones")
+      }
+    } else {
+      if (!formData.name) {
+        alert("Por favor, ingresa tu nombre.");
+        return;
+      }
+      if (step === 2) {
+        if (!formData.email || !formData.user_name) {
+          alert("Por favor, ingrese los datos requeridos");
+          return;
+        }
+      }
+      setStep(step + 1);
     }
-    setStep(step + 1);
+  };
+
+  const Login = () => {
+    if (step === 1) {
+      iniciar_sesion();
+    } else {
+      setButton1("Regresar");
+      setButton2("Siguiente");
+      setStep(step - 1);
+    }
   };
 
   const change = (e) => {
@@ -55,28 +85,27 @@ function Register() {
   ];
 
   const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+    setMenuActive((prev) => !prev);
   };
 
+  const closeMenu = () => {
+    setMenuActive(false);
+  };
+
+  const hidden = !visible ? styles.hidden : " ";
 
   return (
     <>
-      <div className={styles.form_container}>
-        <div className={styles.form_data}>
-          <img
-            className={styles.logo}
-            src="src\\assets\\media\\Logo3.jpeg"
-            alt="logo"
-          />
-          <h1 className={styles.title}>Registro</h1>
+      <div className={classNames(styles.form_data, hidden)}>
+        <h1 className={styles.title}>Registro</h1>
 
-          <form onSubmit={(e) => e.preventDefault()}>
-            <div className="center">
-              <p className={styles.helpText}>
-                Ingresa un usuario y contraseña para crear tu usuario
-              </p>
-            </div>
-
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="center">
+            <p className={styles.helpText}>
+              Ingresa un usuario y contraseña para crear tu usuario
+            </p>
+          </div>
+          <div className={styles.sliderInputs}>
             {step === 1 && (
               <div className={styles.form_group}>
                 <InputDefault
@@ -108,14 +137,6 @@ function Register() {
                     req={true}
                   />
                 </div>
-
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  className={styles.next}
-                >
-                  Siguiente
-                </button>
               </div>
             )}
 
@@ -130,22 +151,14 @@ function Register() {
                   change={change}
                   req={true}
                 />
-                <InputUser
-                  type="email"
+                <InputEmail
                   name="email"
-                  id="emailInput"
+                  id="email"
                   placeHolder="Correo"
                   value={formData.email}
                   change={change}
                   req={true}
                 />
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  className={styles.next}
-                >
-                  Siguiente
-                </button>
               </div>
             )}
 
@@ -170,32 +183,51 @@ function Register() {
                   value={formData.password}
                   change={change}
                 />
-                <button
-                  type="button"
-                  onClick={Registrar}
-                  className={styles.next}
-                >
-                  Registrar
-                </button>
+
+                <div className={styles.rememberme}>
+                  <input
+                    type="checkbox"
+                    name="rememberme"
+                    id="rememberme"
+                    onChange={(e) => setAcept(e.target.checked)}
+                  />
+                  <p className={styles.termRead}>
+                    He leido y acepto los terminos y condiciones
+                  </p>
+                </div>
               </div>
             )}
+          </div>
 
-            <div className={styles.other_sesion}>
-              <button
-                className={styles.noButton}
-                type="button"
-                onClick={toggleModal}
-              >
-                Términos y Condiciones
-              </button>
-            </div>
-          </form>
-        </div>
+          <div
+            className={classNames(styles.twoInputs, styles.buttonsContainer)}
+          >
+            <button type="button" onClick={Login} className={styles.next}>
+              {button1}
+            </button>
+            <button type="button" onClick={Next} className={styles.next}>
+              {button2}
+            </button>
+          </div>
+
+          <div className={styles.other_sesion}>
+            <p>Antes de registrarte</p>
+            <button
+              className={classNames(styles.term)}
+              type="button"
+              onClick={toggleModal}
+            >
+              Términos y Condiciones
+            </button>
+          </div>
+        </form>
       </div>
 
-      {isModalOpen && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
+      <Modal
+        show={menuActive}
+        onClose={closeMenu}
+        info={
+          <>
             <h2>Términos y Condiciones</h2>
             <p>
               **Última actualización:** 8 de diciembre de 2024
@@ -224,16 +256,9 @@ function Register() {
               <br />
               <strong>Teléfono:</strong> +52 33 3658 2647
             </p>
-            <button
-              className={styles.closeButton}
-              type="button"
-              onClick={toggleModal}
-            >
-              Cerrar
-            </button>
-          </div>
-        </div>
-      )}
+          </>
+        }
+      />
     </>
   );
 }

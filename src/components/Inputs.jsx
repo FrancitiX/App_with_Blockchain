@@ -57,9 +57,33 @@ const InputUser = ({ type, name, id, placeHolder, req, value, change }) => {
         required={req ? true : undefined}
         value={value}
         onChange={change}
+        autoComplete="username"
       />
       <div className={style.passwordVisible}>
         <span className="material-symbols-outlined">person</span>
+      </div>
+      <label htmlFor={id}>{placeHolder}</label>
+    </div>
+  );
+};
+
+const InputEmail = ({ type, name, id, placeHolder, req, value, change }) => {
+  // const [value, setValue] = useState("");
+
+  return (
+    <div className={style.inputContain}>
+      <input
+        className={style.inputSession}
+        type="email"
+        name={name}
+        id={id}
+        required={req ? true : undefined}
+        value={value}
+        onChange={change}
+        autoComplete="email"
+      />
+      <div className={style.passwordVisible}>
+        <span className="material-symbols-outlined">alternate_email</span>
       </div>
       <label htmlFor={id}>{placeHolder}</label>
     </div>
@@ -83,6 +107,7 @@ const InputPassword = ({ name, id, placeHolder, value, change }) => {
         required
         value={value}
         onChange={change}
+        autoComplete="current-password"
       />
       <div className={style.passwordVisible} onClick={passwordVisible}>
         {visible ? (
@@ -107,4 +132,4 @@ const Selector = ({ name, id, title, options, change }) => {
   );
 };
 
-export { InputDefault, InputMedio, InputUser, InputPassword, Selector };
+export { InputDefault, InputMedio, InputUser, InputEmail, InputPassword, Selector };

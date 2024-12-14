@@ -40,7 +40,8 @@ styles.css */
 
 .inputContain .inputSession {
   font-size: 15px;
-  padding: 12px 10px;
+  height: 43.2;
+  padding: 12.2px 10px;
   width: 80.3%;
   letter-spacing: 0.5px;
   color: var(--text);

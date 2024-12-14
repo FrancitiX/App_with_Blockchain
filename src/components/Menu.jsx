@@ -1,6 +1,7 @@
 // import {useState} from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../functions/usuario";
 import styles from "./../styles/components/Menu.module.css";
 import classNames from "classnames";
 
@@ -11,8 +12,13 @@ function Menu({ active, onClose }) {
     navigate("/properties");
   };
 
-  const Login = () => {
-    navigate("/");
+  const Exit = () => {
+    logoutUser();
+    if (!localStorage.getItem("authToken")) {
+      navigate("/");
+    } else {
+      alert("Hubo un problema al cerrar la sesión")
+    }
   };
 
   const [theme, setTheme] = useState(() => {
@@ -30,20 +36,20 @@ function Menu({ active, onClose }) {
   };
 
   const menuClass = active ? styles.active : "";
-  const modalClass = active ? styles.modalActive : "";
+  // const modalClass = active ? styles.modalActive : "";
 
   return (
     <>
-      <div
+      {/* <div
         className={classNames(styles.modal, modalClass)}
-        onClick={onClose} // Cierra el menú al hacer clic en el modal
-      ></div>
+        onClick={onClose}
+      ></div> */}
 
       <menu
         className={classNames(styles.menuContainer, menuClass)}
         type="toolbar"
       >
-        <section>
+        <section className={styles.movilHeader}>
           <div className={styles.appTitle}>
             <img
               className={styles.logo}
@@ -77,7 +83,7 @@ function Menu({ active, onClose }) {
               ></span>
             </label>
           </div>
-          <div className={styles.exit} onClick={Login}>
+          <div className={styles.exit} onClick={Exit}>
             Cerrar sesión
           </div>
         </ul>

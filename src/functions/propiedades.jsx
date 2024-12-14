@@ -1,3 +1,6 @@
+// const URL = "https://65jztl86-5001.usw3.devtunnels.ms";
+const URL = "http://localhost:5001";
+
 async function postPropiedad(formData) {
   const validFormData = {
     owner: formData.owner.trim(),
